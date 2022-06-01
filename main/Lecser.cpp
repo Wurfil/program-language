@@ -3,6 +3,8 @@
 #include <vector>
 #include "Token.h"
 #include "TokenValue.cpp"
+#include "Parser.cpp"
+
 using namespace std;
 
 int main() {
@@ -39,6 +41,18 @@ int main() {
     for (int i = 0; i < token_list.size(); i++) {
         cout << token_list[i].get_token() << endl;
     }
+    for (vector<Token> tokens : tokenList) {
+        cout << "=====" << endl;
 
+
+        //use parser
+        Parser parser = new Parser();
+        bool isOk = parser.parse(tokens);
+        cout << "Parser " << isOk << endl;
+        if(!isOk) break;
+
+        cout << "=====" << endl;
+
+    }
     return 0;
 }
